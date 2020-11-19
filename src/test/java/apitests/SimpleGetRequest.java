@@ -86,6 +86,35 @@ public class SimpleGetRequest {
 
     }
 
+
+    /*
+        Given accept type is json
+        When user sends get request to regions/2
+        Then response status code must be 200
+        and body is json format
+        and response body contains Americas
+     */
+
+    @Test
+    public void test5(){
+
+        Response response = given().accept(ContentType.JSON)
+                .when().get(hrurl + "/2");
+
+
+        System.out.println("response.statusCode() = " + response.statusCode());
+        Assert.assertEquals(response.statusCode(),200);
+
+        System.out.println("response.contentType() = " + response.contentType());
+        Assert.assertEquals(response.contentType(),"application/json");
+        System.out.println("response.body().asString() = " + response.body().asString());
+        Assert.assertTrue(response.body().asString().contains("Americas"));
+
+
+
+
+    }
+
     
 
 

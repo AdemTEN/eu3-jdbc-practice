@@ -115,6 +115,30 @@ public class SimpleGetRequest {
 
     }
 
+    /*
+        Given accept type is json
+        When user sends get request to regions/2
+        Then response status code must be 200
+        and body is json format
+        and response body contains Americas
+     */
+    @Test
+    public void test6(){
+
+        RestAssured.given().accept(ContentType.JSON)
+                .get(hrurl+"/2").then()
+                .assertThat().statusCode(200)
+                .contentType("application/json");
+
+
+
+
+
+
+
+
+    }
+
     
 
 

@@ -1,7 +1,6 @@
 package apitests;
 
 
-
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 import org.testng.annotations.BeforeClass;
@@ -37,13 +36,13 @@ public class SpartanTestWithPath {
 
     //1. GET THE VALUE WITH path() METHOD
     @Test
-    public void  getOneSpartan_path(){
+    public void getOneSpartan_path() {
         Response response = given().accept(ContentType.JSON)
                 .and().pathParam("id", 10)
                 .when().get("/api/spartans/{id}");
 
-        assertEquals(response.statusCode(),200);
-        assertEquals(response.contentType(),"application/json;charset=UTF-8");
+        assertEquals(response.statusCode(), 200);
+        assertEquals(response.contentType(), "application/json;charset=UTF-8");
 
         //response.prettyPrint();
         //printing each key value in the json body/payload
@@ -51,7 +50,6 @@ public class SpartanTestWithPath {
         System.out.println(response.path("name").toString());
         System.out.println(response.body().path("gender").toString());//we don't need to write body--optional
         System.out.println(response.body().path("phone").toString());
-
 
 
         //save json key values
@@ -68,14 +66,14 @@ public class SpartanTestWithPath {
         //assert one by one
         //assertEquals(response.path("name"),"Lorenza");
         //assertEquals(response.path("id"),"10");
-        assertEquals(id,10);
-        assertEquals(name,"Lorenza");
-        assertEquals(gender,"Female");
-        assertEquals(phone,3312820936l);
-
-
-
+        assertEquals(id, 10);
+        assertEquals(name, "Lorenza");
+        assertEquals(gender, "Female");
+        assertEquals(phone, 3312820936l);
 
 
     }
+
+
+
 }

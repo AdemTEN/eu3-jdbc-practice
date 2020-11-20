@@ -90,9 +90,9 @@ public class SpartanTestWithParamaters {
 
         //response verification
         //verify status code
-        assertEquals(response.statusCode(),200);
+        assertEquals(response.statusCode(), 200);
         //verify content-type
-        assertEquals(response.contentType(),"application/json;charset=UTF-8");
+        assertEquals(response.contentType(), "application/json;charset=UTF-8");
         //verify Female in the response
         assertTrue(response.body().asString().contains("Female"));
         //verify Janette in the response
@@ -101,12 +101,12 @@ public class SpartanTestWithParamaters {
     }
 
     @Test
-    public void positiveTestWithQueryParamWithParam() {
+    public void positiveTestWithQueryParamWithMaps() {
 
         //create a map and add query parameters
-        Map<String,Object> queryMap = new HashMap<>();
-        queryMap.put("gender","Female");
-        queryMap.put("nameContains","e");
+        Map<String, Object> queryMap = new HashMap<>();
+        queryMap.put("gender", "Female");
+        queryMap.put("nameContains", "e");
 
         Response response = given().accept(ContentType.JSON)
                 .and().queryParams(queryMap)
@@ -114,9 +114,9 @@ public class SpartanTestWithParamaters {
 
         //response verification
         //verify status code
-        assertEquals(response.statusCode(),200);
+        assertEquals(response.statusCode(), 200);
         //verify content-type
-        assertEquals(response.contentType(),"application/json;charset=UTF-8");
+        assertEquals(response.contentType(), "application/json;charset=UTF-8");
         //verify Female in the response
         assertTrue(response.body().asString().contains("Female"));
         //verify Janette in the response

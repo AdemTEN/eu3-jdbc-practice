@@ -100,6 +100,18 @@ public class SpartanTestWithParamaters {
 
     }
 
+
+    /*
+        Given accept type is Json
+        And query parameter values are :
+        gender|Female
+        nameContains|e
+        When user sends GET request to /api/spartans/search
+        Then response status code should be 200
+        And response content-type: application/json;charset=UTF-8
+        And "Female" should be in response payload
+        And "Janette" should be in response payload
+     */
     @Test
     public void positiveTestWithQueryParamWithMaps() {
 

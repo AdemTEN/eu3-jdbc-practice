@@ -49,8 +49,23 @@ public class hrApiParameterTest {
         When users sends a GET request to "/employees"
         Then status code is 200
         And Content type is application/json
-        And Payload should contain "United States of America"
-        {"region_id":2}
+        And Payload should contain "IT_PROG"
+
      */
+
+    @Test
+    public void test2(){
+
+        Response response = given().accept(ContentType.JSON)
+                .and().queryParam("q", "{\"job_id\": \"IT_PROG\"}")
+                .when().get("/employees");
+
+        assertEquals(response.statusCode(),200);
+
+        assertEquals(response.contentType(),"application/json");
+
+        assertTrue(response.body().asString().contains("IT_PROG"));
+
+    }
 
 }

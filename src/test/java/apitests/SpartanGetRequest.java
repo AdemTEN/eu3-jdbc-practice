@@ -65,6 +65,7 @@ public class SpartanGetRequest {
         //request
         Response response = when().get(spartanurl + "/api/hello");
 
+
         //verify status code
         Assert.assertEquals(response.statusCode(),200);
 

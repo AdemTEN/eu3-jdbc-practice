@@ -6,6 +6,8 @@ import io.restassured.response.Response;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
+import java.util.List;
+
 import static io.restassured.RestAssured.baseURI;
 
 import static io.restassured.RestAssured.*;
@@ -74,6 +76,67 @@ public class SpartanTestWithPath {
 
     }
 
+
+
+
+    @Test
+    public void getAllSpartansWithPath(){
+        Response response = given().accept(ContentType.JSON)
+                .when().get("/api/spartans");
+
+
+        assertEquals(response.statusCode(),200);
+
+        assertEquals(response.contentType(),"application/json;charset=UTF-8");
+
+        assertEquals(response.header("Content-Type"),"application/json;charset=UTF-8");
+
+
+        //verify content type
+        //They are inside the array so we have to use index in order to reach specific value
+        int firstId =response.path("id[0]");
+        System.out.println("firstId = " + firstId);
+
+        String firstName =  response.path("name[0]");
+        System.out.println("firstname = " + firstName);
+
+        String lastName = response.path("name[-1]");
+        System.out.println("lastName = " + lastName);
+
+        int lastId = response.path("id[-1]");
+
+        String beforeLastName = response.path("name[-2]");
+        System.out.println("beforeLastName = " + beforeLastName);
+
+
+        String thirdName = response.path("name[2]");
+        System.out.println("thirdname = " + thirdName);
+
+        //print all id in one shot
+        List<Integer> id = response.path("id");
+        System.out.println("id = " + id);
+        for (Integer i : id) {
+            System.out.println(i);
+
+        }
+
+        //print all name in one shot
+        List<String> listNames = response.path("name");
+        System.out.println("listNames = " + listNames);
+
+        for (String listName : listNames) {
+            System.out.println(listName);
+
+        }
+
+        //print all phone in one shot
+        List<Object> phones=  response.path("phone");
+        for (Object phone : phones) {
+            System.out.println(phone);
+
+        }
+
+    }
 
 
 }

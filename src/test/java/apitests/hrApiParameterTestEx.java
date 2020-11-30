@@ -96,6 +96,7 @@ public class hrApiParameterTestEx {
         System.out.println("allCountryID = " + allCountryID);
 
         String countryName = jsonPath.getString("items.country_name[7]");
+        //in postman Automationindex is different ==> "items[7].country_name";
         System.out.println("countryName = " + countryName);
         
         String href = jsonPath.getString("items.links[-2].href[0]");

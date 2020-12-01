@@ -55,8 +55,8 @@ public class CBTrainingWithJsonPath {
 //        String firstname3 =response.path("students.firstName");
 //        System.out.println("firstname3 = " + firstname3);
         //path() doesn't work without index number but jsonPath() is fleible it convert automaticly string to list
-        String zipCode2= response.path("students.company[0].address.zipCode");
-        System.out.println("zipCode2 = " + zipCode2);
+        //String zipCode2= response.path("students.company[0].address.zipCode");
+        //System.out.println("zipCode2 = " + zipCode2);
 
 
     }

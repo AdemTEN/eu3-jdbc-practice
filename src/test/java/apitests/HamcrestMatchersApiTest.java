@@ -73,9 +73,47 @@ public class HamcrestMatchersApiTest {
                 .when().log().all().get("http://api.cybertektraining.com/teacher/department/{name}")
                 .then().statusCode(200)
                 .and().contentType("application/json;charset=UTF-8")
-                .and().header("Vary",equalTo("Accept-Encoding"))
-                .and().body("teachers.firstName",hasItems("Alexander","Marteen"))
-                .and().body("teachers.gender",hasItems("male"));
+                .and().header("Vary", equalTo("Accept-Encoding"))
+                .and().body("teachers.firstName", hasItems("Alexander", "Marteen"))
+                .and().body("teachers.gender", hasItems("male"))
+                .and().body("teachers.phone",hasItems("12345689"));
+
+
+    }
+
+    /*
+      given accept type is Json
+      And path param id is 15
+      When user sends a get request to spartans/{id}
+      Then status code is 200
+      And content type is Json
+      And json data has following
+          "id": 15,
+          "name": "Meta",
+          "gender": "Female",
+          "phone": 1938695106
+       */
+
+    @Test
+    public void testTrying() {
+        given().accept(ContentType.JSON)
+                .and().pathParam("id", "15")
+                .when().log().all().get("http://54.197.12.112:8000/api/spartans/{id}")
+                .then().statusCode(200)
+                .and().contentType(equalTo("application/json;charset=UTF-8"))
+                //BODY
+                .and().body("id", equalTo(15))
+                .and().body("name", equalTo("Meta"))
+                .and().body("gender", equalTo("Female"))
+                .and().body("phone", equalTo(1938695106))
+                //HEADER
+                .and().header("Content-Type",equalTo("application/json;charset=UTF-8"))
+                .and().header("Date",notNullValue())
+                .and().header("Transfer-Encoding",equalTo("chunked"))
+
+                .log().body()
+                .log().all();
+
 
     }
 }

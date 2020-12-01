@@ -41,8 +41,11 @@ public class jsonToJavaCollection {
         Map<String,Object> jsonDataMap = response.body().as(Map.class);
         System.out.println("jsonDataMap = " + jsonDataMap);
 
+
+
         String name = (String) jsonDataMap.get("name");
         assertEquals(name,"Meta");
+        //assertEquals(jsonDataMap.get("name"),"Meta");
 
         BigDecimal phone = new BigDecimal(String.valueOf(jsonDataMap.get("phone")));
 

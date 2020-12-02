@@ -41,7 +41,7 @@ public class HamcrestMatchersApiTest {
     public void teacherId() {
         given().accept(ContentType.JSON)
                 .and().pathParam("id", 8261)
-                //how can we log only rewuest part
+                //how can we log only request part
                 .when().log().all().get("http://api.cybertektraining.com/teacher/{id}")
                 .then().assertThat().statusCode(200)
                 .and().assertThat().contentType(equalTo("application/json;charset=UTF-8"))

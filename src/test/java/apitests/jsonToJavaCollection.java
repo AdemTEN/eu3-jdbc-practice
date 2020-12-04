@@ -23,7 +23,7 @@ public class jsonToJavaCollection {
     }
 
     @Test
-    public void SpartanToMap() {
+    public void SpartanToMap(){
 
         Response response = given().accept(ContentType.JSON)
                 .and().pathParam("id", 15)

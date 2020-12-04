@@ -59,11 +59,18 @@ public class Pojo_deserialize {
         System.out.println("regions.getCount() = " + regions.getCount());
 
         System.out.println(regions.getItems().get(0).getRegionName());
+        System.out.println(regions.getItems().get(1).getLinks().get(0).getRel());
 
         List<Item> items = regions.getItems();
         System.out.println(items.get(1).getRegionId());
 
+        System.out.println(regions.getItems().get(1).getLinks().get(0).getHref());
 
+        System.out.println(regions.getLinks().get(2).getHref());
+
+        System.out.println(regions.getLinks().get(4).getRel());
+
+        System.out.println(regions.getItems().get(3).getLinks().get(0).getHref());
 
 
     }

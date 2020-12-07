@@ -21,7 +21,7 @@ public class PUTRequestDemo {
     }
 
     @Test
-    public void test1(){
+    public void putTest1(){
         //create one map for the put request json body
         Map<String,Object> putRequestMap = new HashMap<>();
         putRequestMap.put("name","Marco");
